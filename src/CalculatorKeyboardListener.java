@@ -3,24 +3,24 @@ import java.awt.event.KeyListener;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
-public class KeyboardListener extends JFrame implements KeyListener {
-    private static final AtomicBoolean expand = new AtomicBoolean(); 
-
+public class CalculatorKeyboardListener implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyChar() == ' ') {
-            expand.set(true);
+            System.out.println("Pressed");
         }
     }
     
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyChar() == ' ') {
-            expand.set(false);
+            System.out.println("Released");
         }
     }
 }
