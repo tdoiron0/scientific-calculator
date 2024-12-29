@@ -38,6 +38,17 @@ public class MainWindow implements ActionListener {
             }
         });
 
+        (new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    if (expand.get()) {
+                        System.out.println("EXPANDING");
+                    }
+                }
+            }
+        })).start();
+
         JFrame frame = new JFrame();
         frame.setSize(WIDTH, HEIGHT);
         frame.setLayout(null);
