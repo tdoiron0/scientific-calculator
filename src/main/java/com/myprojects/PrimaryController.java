@@ -9,6 +9,8 @@ public class PrimaryController {
     private Label currNumLabel;
 
     private static String currNumber = "";
+    private static String prevNumber = "";
+    private static char operator = 0;
 
     @FXML
     private void button0() {
@@ -63,23 +65,51 @@ public class PrimaryController {
 
     @FXML
     private void buttonAdd() {
-        
+        prevNumber = currNumber; 
+        currNumber = "";
+        operator = '+';
+        showNum();
     }
     @FXML
     private void buttonSub() {
-        
+        prevNumber = currNumber; 
+        currNumber = "";
+        operator = '-';
+        showNum();
     }
     @FXML
     private void buttonMult() {
-        
+        prevNumber = currNumber; 
+        currNumber = "";
+        operator = '*';
+        showNum();
     }
     @FXML
     private void buttonDivi() {
-        
+        prevNumber = currNumber; 
+        currNumber = "";
+        operator = '/';
+        showNum();
     }
     @FXML
     private void buttonEq() {
-        
+        switch(operator){
+            case '+': 
+                currNumber = String.valueOf(Integer.valueOf(prevNumber) + Integer.valueOf(currNumber));
+                break;
+            case '-':
+                currNumber = String.valueOf(Integer.valueOf(prevNumber) - Integer.valueOf(currNumber));
+                break;
+            case '*':
+                currNumber = String.valueOf(Integer.valueOf(prevNumber) * Integer.valueOf(currNumber));
+                break;
+            case '/':
+                currNumber = String.valueOf(Integer.valueOf(prevNumber) / Integer.valueOf(currNumber));
+                break;
+            default:
+                break;
+        }
+        showNum();
     }
 
     private void showNum() {
